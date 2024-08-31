@@ -17,14 +17,15 @@ function basePath($path=''){
  * 
  */
 
- function loadView($name){
-   $viewPath =  require basePath("views/{$name}.view.php");
+ function loadView($name, $data = []){
+   $viewPath = basePath("views/{$name}.view.php");
    if(file_exists($viewPath)){
+    extract($data);
     require $viewPath;
    }
-  //  else{
-  //   echo "View '{$name} not found!'";
-  //  }
+   else{
+    echo "View '{$name} not found!'";
+   }
  }
 
  /**
@@ -36,13 +37,12 @@ function basePath($path=''){
  */
 
  function loadPartial($name){
-   $partialPath = require basePath("views/partials/{$name}.php");
+   $partialPath = basePath("views/partials/{$name}.php");
    if(file_exists($partialPath)){
     require $partialPath;
+   }else{
+    echo "View '{$name} not found!'";
    }
-  //  else{
-  //   echo "View '{$name} not found!'";
-  //  }
  }
 
  /**
@@ -68,4 +68,15 @@ function basePath($path=''){
     echo '<pre>';
     die(var_dump($value));
     echo '</pre>';
+  }
+
+  /**
+   * Format Salary
+   * 
+   * @param string $salary
+   * @return string Formatted Salary
+   */
+  function formatSalary($salary)
+  {
+    return '$' . number_format(floatval($salary));
   }

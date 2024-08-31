@@ -15,7 +15,7 @@ class Database {
         // PDO options for error handling
         $options = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // Set error mode to exception
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, // Set fetch mode to associative array
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, // Set fetch mode to associative array
         ];
         
         try {
