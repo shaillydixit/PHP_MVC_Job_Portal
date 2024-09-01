@@ -1,0 +1,16 @@
+{
+    "name": "shailly/job-portal",
+    "description": "Portal for Job Listing",
+    "authors": [
+        {
+            "name": "Shailly Dixit",
+            "email": "shaillydixit@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
