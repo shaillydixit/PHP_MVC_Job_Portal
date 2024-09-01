@@ -2,6 +2,8 @@
 
 namespace Framework;
 
+use App\Controllers\ErrorController;
+
 // $routes = require basePath('routes.php');
 
 // if(array_key_exists($uri, $routes)){
@@ -90,18 +92,18 @@ public function registerRoute($method, $uri, $action)
 
  }
  
- /**
-  * Load error page
-  * @param int $httpcode
-  * @return void
-  */
+//  /**
+//   * Load error page
+//   * @param int $httpcode
+//   * @return void
+//   */
 
-  public function error($httpcode = 404)
-  {
-    http_response_code($httpcode);
-    loadView("error/{$httpcode}");
-    exit;
-  }
+//   public function error($httpcode = 404)
+//   {
+//     http_response_code($httpcode);
+//     loadView("error/{$httpcode}");
+//     exit;
+//   }
 
 
  /**
@@ -127,7 +129,7 @@ public function registerRoute($method, $uri, $action)
             // $listing->index();
         }
     }
-   $this->error();
+   ErrorController::notFound();
   }
 
 
